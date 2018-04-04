@@ -1,0 +1,19 @@
+{
+  "name": "Drawing-With-Canvas-p5",
+  "version": "1.0.0",
+  "description": "p5 drawing for kwk",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learn-co-curriculum/drawing-with-canvas.git"
+  },
+  "author": "Daniel Seehausen",
+  "license": "Flatiron School",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/drawing-with-canvas/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/drawing-with-canvas#readme",
+  "dependencies": {}
+}

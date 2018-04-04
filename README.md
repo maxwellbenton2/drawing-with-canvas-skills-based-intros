@@ -1,16 +1,14 @@
 ## Objectives
 
-1. Objective 1
-2. Objective 2
+1. Have some fun with p5
+2. Make something dank
 
-## Instructions
+## Getting Started
 
-Make the tests pass.
+- Be dank
 
-### Part 1: Do Some Stuff
+## Deliverables
 
-## Resources
+- Make dank
 
-* [Stack Exchange](http://www.stackexchange.com) - [Some Question on Stack Exchange](http://www.stackexchange.com/questions/123)
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/drawing-with-canvas'>Drawing With Canvas</a> on Learn.co and start learning to code for free.</p>
+[p5-home]: "https://p5js.org/"
