@@ -63,12 +63,9 @@ class Ball {
     return collideLineCircle(wall[0], wall[1], wall[2], wall[3], this.x, this.y, this.r*2)
   }
 
-  _getWallsFromBorders(borders) {
-    return borders.reduce((acc, b) => acc.concat(b.getWalls()), [])
-  }
-
-  _checkCollision(borders) {
-    const walls = this._getWallsFromBorders(borders)
+  _checkCollision(border) {
+    // runs this._collided on each of the 4 walls that a border has
+    const walls = border.getWalls()
     walls.forEach(wall => {
       if (this._collided(wall))
         this._handleCollision(wall)
@@ -87,9 +84,9 @@ class Ball {
     this.y += this.directionY * this.speed
   }
 
-  animate(borders) {
+  animate(border) {
     this.draw() // we draw the ball's current position
-    this._checkCollision(borders)
+    this._checkCollision(border) // checks all of a border's walls to see if the ball has collided with them
     this.step() // we move the ball's location
   }
 

@@ -2,6 +2,8 @@ const BORDERWALLCOLORVAL = '#93C'
 const BORDERFILLCOLORVAL = '#888'
 const BORDERTHICKNESS = 10
 
+// We don't need to change anything in this file to satisfy the deliverables
+
 class Border {
 
   // x, y, w, and h are all defined as % of window width and height
