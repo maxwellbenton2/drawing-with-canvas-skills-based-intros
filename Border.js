@@ -24,12 +24,24 @@ class Border {
     this.thickness = thickness
   }
 
-  getPosition() {
+  _getPosition() {
+    // returns startX, startY, width, height
     return [
       windowWidth * this.x,
       windowHeight * this.y,
-      0 + windowWidth * this.w,
-      0 + windowHeight * this.h
+      windowWidth * this.w,
+      windowHeight * this.h
+    ]
+  }
+
+  getWalls() {
+    // returns an array of walls: [startX, startY, endX, endY]
+    const [x, y, w, h] = this._getPosition()
+    return [
+      [x, y, (x + w), y], // top
+      [x, y, x, (y + h)], // left
+      [(x + w), (y + h), x, (y + h)], // bottom
+      [(x + w), (y + h), (x + w), y] // right
     ]
   }
 
@@ -37,7 +49,8 @@ class Border {
     fill(this.fillColor)
     strokeWeight(this.thickness)
     stroke(this.borderColor)
-    rect.apply(null, this.getPosition()) // understanding that rect() is a p5 method to draw a rectangle, why are we using .apply()?
+
+    rect.apply(null, this._getPosition()) // why are we using .apply()? Take a look at the p5 rect() documentation!
   }
 
 }

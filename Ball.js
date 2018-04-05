@@ -24,9 +24,8 @@ class Ball {
     this.colorValue = FREECOLOR
   	this.color = color(FREECOLOR)
 
-    // this is
     this.flashing = false
-    this.speed = 4
+    this.speed = 6
   }
 
   _flashBall(newColor) {
@@ -42,10 +41,12 @@ class Ball {
     }, 200)
   }
 
-  _handleCollision(direction) {
+  _handleCollision(wall) {
     // this method alters the direction of the ball depending on whether a
     // horizontal or vertical surface is hit
-    switch(direction) {
+    const axis = (wall[0] === wall[2]) ? 'x' : 'y'
+
+    switch(axis) {
       case 'x':
         this.directionX *= -1
         break
@@ -58,37 +59,38 @@ class Ball {
     this._flashBall(COLLIDECOLOR)
   }
 
-  _checkCollision(border) {
-    // this method takes in a border instance and checks whether the balls current
-    // position is touching any of the walls
-    const walls = border.getPosition()
-    const collisions = []
+  _collided(wall) {
+    return collideLineCircle(wall[0], wall[1], wall[2], wall[3], this.x, this.y, this.r*2)
+  }
 
-    if ((this.x - this.r) < (walls[0] + border.thickness) || (this.x + this.r) > (walls[0] + walls[2] - border.thickness))
-      collisions.push('x')
-    if ((this.y - this.r) < (walls[1] + border.thickness) || (this.y + this.r) > (walls[1] + walls[3] - border.thickness))
-      collisions.push('y')
+  _getWallsFromBorders(borders) {
+    return borders.reduce((acc, b) => acc.concat(b.getWalls()), [])
+  }
 
-    if (collisions.length) {
-      collisions.forEach(c => {this._handleCollision(c)})
-    }
+  _checkCollision(borders) {
+    const walls = this._getWallsFromBorders(borders)
+    walls.forEach(wall => {
+      if (this._collided(wall))
+        this._handleCollision(wall)
+    })
   }
 
   draw() {
-    stroke(this.color)
+    strokeWeight(0)
+    fill(this.color)
     ellipse(this.x, this.y, this.r*2);
   }
 
   step() {
-    // this method moves the ball
+    // moves the ball
     this.x += this.directionX * this.speed
     this.y += this.directionY * this.speed
   }
 
-  animate(border) {
+  animate(borders) {
     this.draw() // we draw the ball's current position
-    this._checkCollision(border) // we check for collisions so we can reverse the direction if one returns true
-    this.step() // we move the ball's location 
+    this._checkCollision(borders)
+    this.step() // we move the ball's location
   }
 
 }
