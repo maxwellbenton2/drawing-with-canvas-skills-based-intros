@@ -63,16 +63,13 @@ class Ball {
     return collideLineCircle(wall[0], wall[1], wall[2], wall[3], this.x, this.y, this.r*2)
   }
 
-  _checkCollision(borders) {
+  _checkCollision(border) {
     // runs this._collided on each of the 4 walls that a border has
-    for(let n = 0; n < borders.length; n++) {
-      const walls = border.getWalls()
-      walls.forEach(wall => {
-        if (this._collided(wall))
+    const walls = border.getWalls()
+    walls.forEach(wall => {
+      if (this._collided(wall))
         this._handleCollision(wall)
-      })
-    }
-
+    })
   }
 
   draw() {
