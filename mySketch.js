@@ -32,12 +32,12 @@ function windowResized() {
 
 function draw() {
   outerBorder.draw()
-   // we are passing the outerBorder here so that the ball can check whether or not it has collided with any of its walls
+  ball.animate(outerBorder) // we are passing the outerBorder here so that the ball can check whether or not it has collided with any of its walls
 
   if (mouseIsPressed) {
     
     innerBorder.draw()
-    ball.animate([outerBorder,innerBorder])
+    ball.animate(innerBorder)
     
     /* TODO: implement code that draws an inner border (a rectangle within the
      * larger rectangle) when a user has the mouse button held down. This inner
@@ -49,7 +49,5 @@ function draw() {
      * We recommend starting with just making the innerBorder draw on mouse
      * press. Following that, work on making it act 'solid'
      */
-  } else {
-    ball.animate(outerBorder)
   }
 }
