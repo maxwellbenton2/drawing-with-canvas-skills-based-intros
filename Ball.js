@@ -66,8 +66,8 @@ class Ball {
   _checkCollision(borders) {
     // runs this._collided on each of the 4 walls that a border has
     debugger
-    borders.forEach(() => {
-      const walls = borders.getWalls()
+    borders.forEach((border) => {
+      const walls = border.getWalls()
     walls.forEach(wall => {
       if (this._collided(wall))
         this._handleCollision(wall)
