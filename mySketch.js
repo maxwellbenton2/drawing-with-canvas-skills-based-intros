@@ -32,8 +32,7 @@ function windowResized() {
 
 function draw() {
   outerBorder.draw()
-  ball.animate(outerBorder) 
-  // we are passing the outerBorder here so that the ball can check whether or not it has collided with any of its walls
+  ball.animate(outerBorder) // we are passing the outerBorder here so that the ball can check whether or not it has collided with any of its walls
 
   if (mouseIsPressed) {
     /* TODO: implement code that draws an inner border (a rectangle within the
