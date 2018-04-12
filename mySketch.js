@@ -38,6 +38,7 @@ function draw() {
     
     innerBorder.draw()
     ball.animate(innerBorder)
+    
     /* TODO: implement code that draws an inner border (a rectangle within the
      * larger rectangle) when a user has the mouse button held down. This inner
      * border should also act as a boundary. Take note of the ball's
