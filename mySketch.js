@@ -35,6 +35,8 @@ function draw() {
   ball.animate(outerBorder) // we are passing the outerBorder here so that the ball can check whether or not it has collided with any of its walls
 
   if (mouseIsPressed) {
+    
+      
     /* TODO: implement code that draws an inner border (a rectangle within the
      * larger rectangle) when a user has the mouse button held down. This inner
      * border should also act as a boundary. Take note of the ball's
