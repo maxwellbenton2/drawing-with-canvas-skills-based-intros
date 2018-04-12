@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "p5 drawing for kwk",
   "scripts": {
-    "start": "http-server"
+    "start": "httpserver"
   },
   "repository": {
     "type": "git",
